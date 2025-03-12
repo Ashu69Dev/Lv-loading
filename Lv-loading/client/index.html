@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Lee Loading Screen</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Social buttons styles */
+        .social-buttons {
+            position: fixed;
+            bottom: 500px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            border-radius: 30px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            transform: translateX(30px);
+            opacity: 0.9;
+        }
+
+        .social-btn:hover {
+            transform: translateX(0);
+            opacity: 1;
+            gap: 15px;
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .social-btn i {
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover i {
+            transform: translateY(-2px);
+        }
+
+        /* Platform colors */
+        .discord { background: rgba(88, 101, 242, 0.8); }
+        .discord:hover { background: #5865F2; }
+
+        .youtube { background: rgba(255, 0, 0, 0.8); }
+        .youtube:hover { background: #FF0000; }
+
+        .webstore { background: rgba(255, 165, 0, 0.8); }
+        .webstore:hover { background: #FFA500; }
+
+        @keyframes slideIn {
+            from { transform: translateX(30px); }
+            to { transform: translateX(0); }
+        }
+
+        .social-btn {
+            animation: slideIn 0.5s ease forwards;
+            animation-delay: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-container">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="./img/logo.png" alt="Server Logo">
+        </div>
+
+        <!-- Typewriter Text -->
+        <div class="typewriter-container">
+            <div class="typewriter-text" id="typewriter"></div>
+        </div>
+        <div class="typewriter-container">
+            <div class="typewriter-text">
+                <p id="line1"></p>
+                <p id="line2"></p>
+                <p id="line3"></p>
+                <p id="line4"></p>
+            </div>
+        </div>
+
+        <!-- Slideshow -->
+        <div class="slideshow"></div>
+
+        <!-- Loading Status -->
+        <div class="loading-status">
+            <div class="loading-text">Initializing...</div>
+        </div>
+
+        <!-- Progress System -->
+        <div class="progress-container">
+            <div class="loading-percentage">0%</div>
+            <div class="loader">
+                <div></div><div></div><div></div><div></div>
+                <div></div><div></div><div></div>
+            </div>
+        </div>
+
+        <!-- Audio Controls -->
+        <div class="audio-controls">
+            <button id="playPause">▶</button>
+            <input type="range" id="volume" min="0" max="1" step="0.1" value="0.5">
+        </div>
+
+        <!-- Social Media Buttons -->
+         <!-- Social Media Buttons -->
+         <div class="social-buttons">
+            <a href="https://discord.gg/classicstreetsrp" target="_blank" class="social-btn discord">
+                <i class="fab fa-discord"></i>
+                <span>Join Discord</span>
+            </a>
+            <a href="https://www.youtube.com/channel/UC2PHaVb2e5DuVszNtr1rFRQ" target="_blank" class="social-btn youtube">
+                <i class="fab fa-youtube"></i>
+                <span>YouTube</span>
+            </a>
+            <a href="https://your-webstore.com" target="_blank" class="social-btn webstore">
+                <i class="fas fa-shopping-bag"></i>
+                <span>Web Store</span>
+            </a>
+        </div>
+    </div>
+
+    <audio id="backgroundAudio" autoplay>
+        <source src="./audio/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
